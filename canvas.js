@@ -174,33 +174,18 @@ class Sketch {
     console.log("Image path:", this.img.src);
     console.log("Image exists:", this.img.complete);
     
-    // 创建临时调试内容
-    this.container.style.position = 'relative';
-    let debugText = document.createElement('div');
-    debugText.style.position = 'absolute';
-    debugText.style.color = 'white';
-    debugText.style.zIndex = '100';
-    debugText.style.top = '10px';
-    debugText.style.left = '10px';
-    debugText.textContent = 'Three.js Effect Active';
-    this.container.appendChild(debugText);
-    
     // 确保图片已加载
     if (!this.img.complete) {
-      debugText.textContent = 'Loading image...';
       console.log("Image not yet loaded, waiting...");
       this.img.onload = () => {
-        debugText.textContent = 'Image loaded, initializing Three.js';
         console.log("Image loaded, initializing Three.js");
         this.initializeAfterImageLoad();
       };
       // 加载出错处理
       this.img.onerror = (e) => {
-        debugText.textContent = 'Error loading image';
         console.error("Error loading image:", e);
       };
     } else {
-      debugText.textContent = 'Image ready, initializing directly';
       console.log("Image ready, initializing directly");
       this.initializeAfterImageLoad();
     }
