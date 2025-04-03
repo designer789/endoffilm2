@@ -93,7 +93,7 @@ nav {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0; /* 隐藏原始图片，因为Three.js会使用它创建纹理 */
+    opacity: 0;
     position: absolute;
 }
 

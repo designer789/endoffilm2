@@ -336,7 +336,23 @@ class Sketch {
 
 // Initialize the effect when document is loaded
 window.addEventListener('DOMContentLoaded', () => {
-  new Sketch({
-    dom: document.getElementById("canvasContainer")
-  });
+    const container = document.getElementById("canvasContainer");
+    const img = container.querySelector("img");
+    
+    // 等待图片加载完成后再初始化
+    if (img) {
+        if (img.complete) {
+            new Sketch({
+                dom: container
+            });
+        } else {
+            img.onload = () => {
+                new Sketch({
+                    dom: container
+                });
+            };
+        }
+    } else {
+        console.error("Image element not found in canvasContainer");
+    }
 });
