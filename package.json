@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "parcel index.html",
-    "build": "echo 'No build step needed for static site'"
+    "build": "rm -rf dist && mkdir -p dist && cp -r index.html styles.css script.js canvas.js uploads dist/"
   },
   "repository": {
     "type": "git",
