@@ -1,0 +1,26 @@
+{
+  "name": "endoffilm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "canvas.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel index.html",
+    "build": "echo 'No build step needed for static site'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/designer789/endoffilm.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/designer789/endoffilm/issues"
+  },
+  "homepage": "https://github.com/designer789/endoffilm#readme",
+  "devDependencies": {
+    "parcel": "^2.14.4"
+  }
+}
