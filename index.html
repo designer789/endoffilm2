@@ -10,29 +10,59 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Three.js Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="uploads/icon.png">
+    <link rel="apple-touch-icon" href="uploads/icon.png">
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">End of Film</div>
-            <div class="social-buttons">
-                <a href="#" class="btn">
+            <div class="logo">
+                <img src="uploads/icon.png" alt="EOF Logo">
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-menu">
+                <a href="#" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#ai-studio" class="nav-link">AI Studio</a>
+                <a href="#market" class="nav-link">Market</a>
+                <a href="#tokenomics" class="nav-link">Tokenomics</a>
+                <a href="#roadmap" class="nav-link">Roadmap</a>
+                <div class="social-buttons">
+                    <a href="https://x.com/End_of_Flim_" class="btn" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                        Twitter
+                    </a>
+                    <a href="https://t.me/End_of_Flim" class="btn" target="_blank">
+                        <i class="fab fa-telegram"></i>
+                        Telegram
+                    </a>
+                </div>
+            </div>
+            <div class="social-buttons desktop-only">
+                <a href="https://x.com/End_of_Flim_" class="btn" target="_blank">
                     <i class="fab fa-twitter"></i>
                     Twitter
                 </a>
-                <a href="#" class="btn">
+                <a href="https://t.me/End_of_Flim" class="btn" target="_blank">
                     <i class="fab fa-telegram"></i>
                     Telegram
                 </a>
             </div>
         </nav>
+        <div class="scroll-progress-container">
+            <div class="scroll-progress-bar"></div>
+        </div>
     </header>
 
     <section class="hero">
         <div id="canvasContainer" class="canvasContainer" data-grid="50" data-mouse="0.1" data-strength="0.4" data-relaxation="0.8" data-aspectRatio="1.77">
             <img src="uploads/p1.jpg" alt="Hero Background">
-            <!-- 图片状态指示器 -->
+            <!-- Image status indicator -->
             <div class="image-status" style="position:absolute; bottom:10px; right:10px; color:white; background:rgba(0,0,0,0.5); padding:5px; z-index:10;"></div>
         </div>
         <div class="hero-content">
@@ -40,10 +70,351 @@
             <h2>The Decentralized AI Film Studio</h2>
             <p>Empowering Creators with Ownership & Automation</p>
             <p class="subtitle">More crypto-native framing and AI filmmaking for the next evolution of Entertainment Finance</p>
+            <div class="hero-cta">
+                <a href="#" class="cta-btn primary">Start Creating</a>
+                <a href="#" class="cta-btn secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="disruption">
+        <div class="disruption-content">
+            <h2>About</h2>
+            <p class="highlight">EOF is disrupting the $2.3T media industry by building the first DeFi-powered film studio. Our AI stack slashes production costs by 100x while NFT ownership and tokenized revenue sharing put 90%+ profits directly in creators' wallets. We're creating the OpenAI of film - but where artists actually get paid.</p>
+        </div>
+    </section>
+
+    <!-- AI Studio Suite section -->
+    <section id="ai-studio" class="ai-studio">
+        <div class="ai-studio-content">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="studio">AI Film Studio Suite</button>
+                <button class="tab-btn" data-tab="economy">Decentralized Content Economy</button>
+            </div>
+            
+            <div class="tab-content active" id="studio">
+                <div class="tools-container">
+                    <div class="container-title"><h3>Hollywood-Grade AI Tools</h3></div>
+                    <div class="tool-item">
+                        <div class="tool-icon">🎬</div>
+                        <div class="tool-description">
+                            <strong>Script-to-Screen Pipeline</strong>
+                            Go from prompt to finished film in 72hrs
+                        </div>
+                    </div>
+                    <div class="tool-item">
+                        <div class="tool-icon">🤖</div>
+                        <div class="tool-description">
+                            <strong>Proprietary AI Models</strong>
+                            Fine-tuned on 10,000+ Oscar-winning scripts & scenes
+                        </div>
+                    </div>
+                    <div class="tool-item">
+                        <div class="tool-icon">🔗</div>
+                        <div class="tool-description">
+                            <strong>On-Chain Provenance</strong>
+                            Every asset minted as verifiable NFTs (ERC-6551)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="economy">
+                <div class="tools-container">
+                    <div class="container-title"><h3>The Future of Film Finance</h3></div>
+                    <div class="tool-item">
+                        <div class="tool-icon">🏦</div>
+                        <div class="tool-description">
+                            <strong>FilmDAO</strong>
+                            Stake $EOF to greenlight projects and share box office profits
+                        </div>
+                    </div>
+                    <div class="tool-item">
+                        <div class="tool-icon">💸</div>
+                        <div class="tool-description">
+                            <strong>Royalty Vaults</strong>
+                            Auto-compounding yield from licensed content
+                        </div>
+                    </div>
+                    <div class="tool-item">
+                        <div class="tool-icon">🎟</div>
+                        <div class="tool-description">
+                            <strong>Fractional IP Ownership</strong>
+                            Trade film rights like ERC-20 tokens
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market section -->
+    <section id="market" class="market">
+        <div class="market-content">
+            <div class="market-header">
+                <h2>New Era and The End of Traditional Film</h2>
+            </div>
+            
+            <div class="market-grid">
+                <div class="market-item">
+                    <div class="market-title">
+                        <h3>Trillion Market</h3>
+                    </div>
+                    <p>$2.3 trillion film and television industry is migrating to Web3</p>
+                </div>
+                
+                <div class="market-item">
+                    <div class="market-title">
+                        <h3>Massive TAM</h3>
+                    </div>
+                    <p>100M to $1M per blockbuster</p>
+                </div>
+                
+                <div class="market-item revenue">
+                    <div class="market-title">
+                        <h3>Revenue Moats</h3>
+                    </div>
+                    <ul>
+                        <li>Considerable platform fee on transactions</li>
+                        <li>20% carry on DAO-funded films</li>
+                        <li>$EOF buybacks from ad revenue</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tokenomics section -->
+    <section id="tokenomics" class="tokenomics">
+        <div class="tokenomics-content">
+            <div class="tokenomics-header">
+                <h2>Tokenomics ($EOF)</h2>
+            </div>
+            
+            <div class="tokenomics-grid">
+                <div class="utility-section">
+                    <h3>Utility Of $EOF</h3>
+                    <div class="utility-cards">
+                        <div class="utility-card">
+                            <h4>Medium of Exchange</h4>
+                            <ul>
+                                <li>Pay for AI tool usage (script generation, rendering, editing)</li>
+                                <li>Gas fee discounts (up to 30%) when transacting on EOF's marketplace</li>
+                            </ul>
+                        </div>
+                        <div class="utility-card">
+                            <h4>Governance</h4>
+                            <ul>
+                                <li>Stake $EOF to vote on:</li>
+                                <li>Film grants via DAO proposals</li>
+                                <li>Platform parameter adjustments (e.g., fee structures)</li>
+                            </ul>
+                        </div>
+                        <div class="utility-card">
+                            <h4>Value Accrual</h4>
+                            <ul>
+                                <li>Staking Rewards</li>
+                                <li>Buyback-and-Burn</li>
+                            </ul>
+                        </div>
+                        <div class="utility-card">
+                            <h4>Access & Privileges</h4>
+                            <ul>
+                                <li>VIP Tiers: Long-term stakers unlock:</li>
+                                <li>Early access to high-potential film NFTs</li>
+                                <li>Higher yield multipliers</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="distribution-section">
+                    <h3>Distribution</h3>
+                    <div class="distribution-content">
+                        <div class="distribution-chart">
+                            <canvas id="distributionChart"></canvas>
+                        </div>
+                        <div class="distribution-legend">
+                            <div class="legend-item">
+                                <span class="color-dot" style="background: #CDF7FF"></span>
+                                <span class="label">Liquidity</span>
+                                <span class="value">70%</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="color-dot" style="background: #9BE4FF"></span>
+                                <span class="label">Community Rewards</span>
+                                <span class="value">10%</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="color-dot" style="background: #69D1FF"></span>
+                                <span class="label">Creator Plan</span>
+                                <span class="value">10%</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="color-dot" style="background: #37BEFF"></span>
+                                <span class="label">Ecosystem Fund</span>
+                                <span class="value">5%</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="color-dot" style="background: #05ABFF"></span>
+                                <span class="label">Team & Investors</span>
+                                <span class="value">5%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap section -->
+    <section id="roadmap" class="roadmap">
+        <div class="roadmap-content">
+            <div class="roadmap-header">
+                <h2>Roadmap</h2>
+            </div>
+            
+            <div class="timeline">
+                <div class="phase">
+                    <div class="phase-header">
+                        <span class="phase-number">01</span>
+                        <h3>Foundation</h3>
+                        <p class="objective">Objective: Launch core AI film stack with basic Web3 integrations.</p>
+                    </div>
+                    <div class="deliverables">
+                        <div class="deliverable-item">
+                            <h4>EOF Studio Alpha</h4>
+                            <ul>
+                                <li>AI script generation (GPT-4 fine-tuned for screenwriting)</li>
+                                <li>Beta access for 1,000 creators via whitelist</li>
+                            </ul>
+                        </div>
+                        <div class="deliverable-item">
+                            <h4>EVM Deployment</h4>
+                            <ul>
+                                <li>Smart contracts for NFT minting (ERC-721) and royalty splits</li>
+                                <li>$EOF token generation event (TGE) on decentralized exchanges</li>
+                            </ul>
+                        </div>
+                        <div class="deliverable-item">
+                            <h4>First AI-Generated Short Film</h4>
+                            <ul>
+                                <li>Proof-of-concept: 5-minute film fully produced on EOF</li>
+                                <li>Premiered at a major Web3 conference</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phase">
+                    <div class="phase-header">
+                        <span class="phase-number">02</span>
+                        <h3>Scaling</h3>
+                        <p class="objective">Objective: Decentralize governance and expand cross-chain interoperability.</p>
+                    </div>
+                    <div class="deliverables">
+                        <div class="deliverable-item">
+                            <h4>DAO Governance Launch</h4>
+                            <ul>
+                                <li>Staking-based voting for film funding decisions</li>
+                                <li>Treasury management via Snapshot</li>
+                            </ul>
+                        </div>
+                        <div class="deliverable-item">
+                            <h4>Solana Bridge</h4>
+                            <ul>
+                                <li>Cross-chain NFT compatibility for lower-cost minting</li>
+                                <li>Integration with Solana-based DeFi protocols</li>
+                            </ul>
+                        </div>
+                        <div class="deliverable-item">
+                            <h4>Web2 Plugin Suite</h4>
+                            <ul>
+                                <li>Auto-upload tools for YouTube/TikTok with revenue tracking</li>
+                                <li>ZK-proofs for content originality verification</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phase">
+                    <div class="phase-header">
+                        <span class="phase-number">03</span>
+                        <h3>Ecosystem Growth</h3>
+                        <p class="objective">Objective: Establish EOF as the default infrastructure for AI-native entertainment.</p>
+                    </div>
+                    <div class="deliverables">
+                        <div class="deliverable-item">
+                            <h4>EOF Chain Testnet</h4>
+                            <ul>
+                                <li>Custom L2 optimized for media storage/streaming</li>
+                                <li>Native ad-revenue sharing contracts</li>
+                            </ul>
+                        </div>
+                        <div class="deliverable-item">
+                            <h4>Metaverse Partnerships</h4>
+                            <ul>
+                                <li>EOF films usable as VR assets in Decentraland/Sandbox</li>
+                                <li>Virtual film festivals with token-gated access</li>
+                            </ul>
+                        </div>
+                        <div class="deliverable-item">
+                            <h4>Feature-Length AI Film</h4>
+                            <ul>
+                                <li>90-minute narrative film co-created by community DAO</li>
+                                <li>Theatrical release via decentralized distribution partners</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phase future">
+                    <div class="phase-header">
+                        <span class="phase-number">04</span>
+                        <h3>Long-Term Vision</h3>
+                    </div>
+                    <div class="deliverables">
+                        <div class="deliverable-item">
+                            <h4>AI Model Ownership</h4>
+                            <p>Creators train and monetize custom AI agents</p>
+                        </div>
+                        <div class="deliverable-item">
+                            <h4>Decentralized Physical Infrastructure (DePIN)</h4>
+                            <p>Render farms for AI film production</p>
+                        </div>
+                        <div class="deliverable-item">
+                            <h4>EOF Academy</h4>
+                            <p>On-chain credentialing for Web3 filmmakers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Canvas Effect Script -->
     <script src="canvas.js"></script>
+    <script src="tabs.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="tokenomics.js"></script>
+    <script src="script.js"></script>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-cta">
+                <h2>Join The Revolution With EOF</h2>
+                <div class="footer-buttons">
+                    <a href="https://x.com/End_of_Flim_" class="cta-btn primary" target="_blank">Twitter</a>
+                    <a href="https://t.me/End_of_Flim" class="cta-btn secondary" target="_blank">Telegram</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2023 End of Film. All rights reserved.
+                </div>
+                
+            </div>
+        </div>
+    </footer>
 </body>
 </html> 

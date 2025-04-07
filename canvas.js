@@ -64,19 +64,40 @@ class Sketch {
   }
 
   mouseEvents() {
+    // 添加鼠标是否在容器内的标志
+    this.mouseInContainer = false;
+    
+    // 鼠标进入容器
+    this.container.addEventListener("mouseenter", () => {
+      this.mouseInContainer = true;
+    });
+    
+    // 鼠标离开容器
+    this.container.addEventListener("mouseleave", () => {
+      this.mouseInContainer = false;
+      // 重置鼠标速度，避免离开后仍有效果
+      this.mouse.vX = 0;
+      this.mouse.vY = 0;
+    });
+    
+    // 鼠标移动 - 仅在容器内有效
     window.addEventListener("mousemove", (e) => {
-      this.mouse.x = e.clientX / this.width;
-      this.mouse.y = e.clientY / this.height;
-
-      // console.log(this.mouse.x,this.mouse.y)
-
-      this.mouse.vX = this.mouse.x - this.mouse.prevX;
-      this.mouse.vY = this.mouse.y - this.mouse.prevY;
-
-      this.mouse.prevX = this.mouse.x;
-      this.mouse.prevY = this.mouse.y;
-
-      // console.log(this.mouse.vX,'vx')
+      // 只有当鼠标在容器内时才处理移动
+      if (this.mouseInContainer) {
+        // 获取相对于容器的位置
+        const rect = this.container.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        this.mouse.x = x / this.width;
+        this.mouse.y = y / this.height;
+        
+        this.mouse.vX = this.mouse.x - this.mouse.prevX;
+        this.mouse.vY = this.mouse.y - this.mouse.prevY;
+        
+        this.mouse.prevX = this.mouse.x;
+        this.mouse.prevY = this.mouse.y;
+      }
     });
   }
 
@@ -284,6 +305,19 @@ class Sketch {
   }
 
   updateDataTexture() {
+    // 只有当鼠标在容器内时才应用效果
+    if (!this.mouseInContainer) {
+      // 鼠标不在容器内时，只应用衰减效果
+      let data = this.texture.image.data;
+      for (let i = 0; i < data.length; i += 3) {
+        data[i] *= this.settings.relaxation;
+        data[i + 1] *= this.settings.relaxation;
+      }
+      this.texture.needsUpdate = true;
+      return;
+    }
+    
+    // 原有的更新逻辑
     let data = this.texture.image.data;
     for (let i = 0; i < data.length; i += 3) {
       data[i] *= this.settings.relaxation;
